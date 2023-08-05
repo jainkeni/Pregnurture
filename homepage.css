@@ -1,0 +1,95 @@
+.header-container {
+    text-align: right;
+    }
+    
+    h1 {
+    font-size: 40px;
+    margin-top: 35px;
+    margin-right: 130px;
+    }
+
+    .image-container {
+    margin-top: 35px;
+    margin-right: 170px;
+    }
+    
+    .image-container p {
+    margin-top: 50px;
+    margin-right: 135px;
+    margin-bottom: 0;
+    }
+    .image-container p {
+    margin-top: 5px; 
+    margin-bottom: 0; 
+    }
+    .image-container p1 {
+    margin-top: 50px;
+    margin-right: 135px;
+    }
+    body{
+        background-color: #c4d1f3;
+    }
+    nav {
+    background-color:#c4d1f3;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    }
+
+    .navbar-left h1 {
+    margin: 5px 0;
+    color: #592693;
+    font-style: italic;
+    }
+
+    .navbar-right ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    
+    }
+
+    .navbar-right li {
+    margin-left: 60px; 
+    font-size: 20px;
+    }
+
+    .navbar-right a {
+    text-decoration: none;
+    color: black;
+    }
+    .left-aligned-image {
+    display: flex;
+    justify-content: space-between;
+    } 
+    .learn-more-button {
+    margin-top: 40px; 
+    margin-right: 125px;
+    }
+    .buttons{
+        margin-bottom: 100px;
+        margin-top: 150px;
+        margin-left: -150px;
+    }
+    #button1{
+        display: flex;
+        object-position: bottom;
+        min-width: max-content;
+        padding: .8rem 1rem;
+        border-radius: 5px;
+        border: 0;
+        background: #fdd5de;
+        color: #000;
+        cursor: pointer;
+        margin-bottom: 20px;
+        width: 250px;
+        height: 50px;
+        text-align: center;
+        margin-left: 300px;
+    }
+
+    #button1:hover{
+        background-color: #c1ddd8;
+    }

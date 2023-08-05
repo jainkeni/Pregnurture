@@ -1,0 +1,136 @@
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      gap: 1rem;
+      background-color: #F2C2C2;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .heading
+    {
+        display:flex;
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+        max-height: fit-content;
+    }
+
+    .episodes {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 100px;
+      margin-left: -100px;
+    }
+
+    .episode {
+      object-position: bottom;
+      min-width: max-content;
+      margin-bottom: .8rem;
+      padding: .8rem 1rem;
+      border-radius: 10px;
+      border: 0;
+      background: #9EC4C5;
+      color: #000;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .episode:hover {
+      background: #C1DDD8;
+    }
+    .new {
+        display: inline-block;
+        font-weight: bold;
+        font-size: x-large;
+        text-align: center;
+        min-width: max-content;
+        position: relative;
+        top: 50%;
+        /*border-radius: 10px;
+      border: 0;
+      background: #9EC4C5;
+      color: #000;
+      cursor: pointer;
+      margin-bottom: .8rem;
+      padding: .8rem 1rem;*/
+}
+    .playlst
+    {
+        display:inline-flex;
+        margin-bottom: .8rem;
+      padding: 50px;
+      min-width: max-content;
+      border-radius: 10px;
+       position: absolute;
+       top: 60%;
+    }
+    .spotify-iframe
+    {
+        display:flex;
+        flex-direction: column;
+        position: relative;
+        width: 50%;
+        height: 200px; 
+        border-radius: 12px;
+        align-items: flex-start;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="heading" > 
+       <h1>Podcasts For You</h1>
+    </div>
+    <div class="episodes">
+    <button class="episode" data-spotify-id="https://open.spotify.com/episode/0zgxIrMV5Z5UXvYrubiS9r?si=1a3c03dd30d4440a">
+      Your Value as a Mother to be
+    </button>
+    <button class="episode" data-spotify-id="https://open.spotify.com/episode/4vV0ZqTNqrkbPbVPPmPuKR?si=36543ffef8ee49a5">
+      Single Moms are Moms too
+    </button>
+    <button class="episode" data-spotify-id="https://open.spotify.com/episode/4Oi45FrfywgdjEvQUKVnGJ?si=88fd91ae5ad34f23">
+      Postpartum Recovery
+    </button>
+  </div>
+  <div class="new">
+   <h3>Playlists Curated for your Needs</h3>
+  </div>
+  <div class= "playlst">
+    <iframe style="padding-right: 50px;border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVmyIPX2ivrY?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="padding-right: 50px;border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVy2Fygel8HO?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="padding-right: 50px;border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXQQjKCyWSeW?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0kWFWFtanIn?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    
+</div>
+<div class="spotify-iframe" style="margin-top: 100px; margin-left: -300px;" >
+    <div id="embed-iframe" ></div>
+</div>
+
+  <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async>
+  </script>
+  <script type="text/javascript">
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+       const element = document.getElementById('embed-iframe');
+      const options = {
+          
+        width: '70%',
+        height: '300',
+        uri: "https://open.spotify.com/episode/0zgxIrMV5Z5UXvYrubiS9r?si=1a3c03dd30d4440a" ,
+              
+      };
+      const callback = (EmbedController) => {
+        document.querySelectorAll('.episode').forEach(
+          episode => {
+            episode.addEventListener('click', () => {
+              EmbedController.loadUri(episode.dataset.spotifyId)
+            });
+          })
+      };
+      IFrameAPI.createController(element, options, callback);
+    };
+  </script>
+</body>
+</html>

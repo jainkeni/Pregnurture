@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<link href="homepage.js"></link>
+<title>PREGNURTURE</title>
+</head>
+<style>
+    .header-container {
+    text-align: right;
+    }
+    
+    h1 {
+    font-size: 40px;
+    margin-top: 35px;
+    margin-right: 130px;
+    }
+
+    .image-container {
+    margin-top: 35px;
+    margin-right: 170px;
+    }
+    
+    .image-container p {
+    margin-top: 50px;
+    margin-right: 135px;
+    margin-bottom: 0;
+    }
+    .image-container p {
+    margin-top: 5px; 
+    margin-bottom: 0; 
+    }
+    .image-container p1 {
+    margin-top: 50px;
+    margin-right: 135px;
+    }
+    body{
+        background-color: #c4d1f3;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    nav {
+    background-color:#c4d1f3;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-right:30px;
+    }
+
+    .navbar-left{
+        width:30%;
+        float:left
+    }
+
+    .navbar-right ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    font-weight: bold;
+    float:right;
+    
+    }
+
+    .navbar-right li {
+    margin-left: 60px; 
+    font-size: 20px;
+    }
+
+    .navbar-right a {
+    text-decoration: none;
+    color: black;
+    }
+
+    /* Previous styles */
+
+    .tooltip-item {
+        position: relative;
+    }
+
+    .tooltip-text {
+        visibility: hidden;
+        width: 180px;
+        background-color: #fdd5de;
+        color: black;
+        text-align: center;
+        border-radius: 4px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .tooltip-item:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+    }
+
+    .left-aligned-image {
+    display: flex;
+    justify-content: space-between;
+    } 
+
+    .learn-more-button {
+    margin-top: 40px; 
+    margin-right: 125px;
+    }
+
+    .homeimage{
+        width:40px;
+        height:40px;
+        margin-left: 15px;
+    }
+
+    h3{
+        margin-left: 950px;
+        font-style: italic;
+    }
+
+    .buttons {
+    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-left: 600px;
+    }
+
+    .buttons a {
+        text-decoration: none;
+        text-align: center; 
+    }
+
+    #button1 {
+        display: flex;
+        object-position: bottom;
+        min-width: max-content;
+        padding: .8rem 1rem;
+        border-radius: 5px;
+        border: 0;
+        background: none; /* Remove the background color */
+        color: #000;
+        cursor: pointer;
+        margin-bottom: 20px;
+        width: 250px;
+        height: 50px;
+        text-align: center;
+        margin-left: 300px;
+        background-color: #fdd5de;
+        text-align: center;
+    }
+
+    #button1:hover {
+        background-color: #c1ddd8;
+    }
+
+
+</style>
+<body>
+    
+    <nav>
+        <div class="navbar-left">
+            <img src="C:\Users\KENI\Keni\PROJECTS\websites\Pregnancy\logo.png">
+        </div>
+        <div class="navbar-right">
+        <ul>                
+            <li class="tooltip-item">
+                <a href="homepage.html">Home</a>
+                <span class="tooltip-text">Homepage</span>
+            </li>
+            <li class="tooltip-item">
+                <a href="C:\Users\KENI\Keni\PROJECTS\websites\Pregnancy\todolist.html">To-Do List</a>
+                <span class="tooltip-text">Manage your tasks</span>
+            </li>
+            <li class="tooltip-item">
+                <a href="C:\Users\KENI\Keni\PROJECTS\websites\Pregnancy\music.html">Music</a>
+                <span class="tooltip-text">Listen to your favorite tunes</span>
+            </li>
+            <li class="tooltip-item">
+                <a href="C:\Users\KENI\Desktop\exercise\templates\index.html">PEP</a>
+                <span class="tooltip-text">Personalized exercise plan</span>
+            </li>
+            <li class="tooltip-item">
+                <a href="https://script.google.com/macros/s/AKfycbykRAh51Y4HIwObBDN-JA5Do8KBJm4d3BKL27_2ax4Ee-hv_dNYSOHFT4loAPxOzbZe/exec">Location</a>
+                <span class="tooltip-text">Check healthcare near you</span>
+            </li>
+            <li class="tooltip-item">
+                <a href="C:\Users\KENI\Keni\PROJECTS\websites\Pregnancy\contactus.html">Contact Us</a>
+                <span class="tooltip-text">For any queries</span>
+            </li>
+       
+        </ul>
+        </div>
+    </nav>
+    <div class="homeimage">
+         <img src="C:\Users\KENI\Keni\PROJECTS\websites\Pregnancy\img.jpeg">
+    </div>
+    <h3 class="h3">More on our site.</h3>
+    <div class="buttons">
+        <a href="pregnancy.html" id="button1"><b>Pregnancy<b></a>
+        <a href="health.html" id="button1"><b>Health & Safety</b></a>
+        <a href="diet.html" id="button1"><b>Diet & Fitness</b></a>
+    </div>   
+</body> 
+</html>
