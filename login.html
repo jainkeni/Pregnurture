@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        /* Common styles for both pages */
+        body {
+            background-color: #F5E4DC;
+        }
+    
+        /* Styles for the login page */
+        .wrapper {
+            text-align: center;
+            margin-top: 50px;
+        }
+    
+        #login-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+    
+        #login-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #c20a69;
+            font-style: italic;
+        }
+    
+        .input-box {
+            margin-bottom: 15px;
+            text-align: left;
+            margin-right: 40px;
+            margin-left: 40px;
+        }
+    
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    
+        .btn {
+            display: inline-block;
+            background-color: #9EC4C5;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+        .btn:hover {
+            background-color: #c1ddd8;
+        }
+    
+        .register-link {
+            margin-top: 10px;
+        }
+    
+        .register-link a {
+            text-decoration: none;
+            color: #c20a69;
+        }
+    </style>
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDLkNgnVZsz8DzSMJddLml7mLSdQvIieec",
+    authDomain: "login-6db99.firebaseapp.com",
+    projectId: "login-6db99",
+    storageBucket: "login-6db99.appspot.com",
+    messagingSenderId: "825606690034",
+    appId: "1:825606690034:web:03a69a07db4ddc66582c6b",
+    measurementId: "G-9QG19N70K3"
+  };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+
+        // Handle registration form submission
+        document.getElementById("registration-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById("register-username").value;
+            const email = document.getElementById("register-email").value;
+            const password = document.getElementById("register-password").value;
+
+            try {
+                // Create a new user account
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                alert("Registration successful!");
+                // You can optionally redirect the user or perform other actions here
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        // Handle login form submission
+        document.getElementById("login-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+
+            try {
+                // Sign in the user
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                alert("Login successful!");
+                // You can optionally redirect the user or perform other actions here
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+        // Handle login form submission
+document.getElementById("login-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    try {
+        // Sign in the user
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        alert("Login successful!");
+
+        // Redirect the user to the homepage
+        window.location.href = "homepage.html"; // Replace "homepage.html" with your actual homepage URL
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="login-form">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="email" id="login-email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="login-password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="register-link">
+            <p>Don't have an account? <a href="#" id="register-link">Register</a></p>
+        </div>
+    </div>
+
+    <div class="wrapper" id="registration-section" style="display: none;">
+        <form id="registration-form">
+            <h1>Register</h1>
+            <div class="input-box">
+                <input type="text" id="register-username" placeholder="Username" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="register-email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="register-password" placeholder="Password" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="register-confirm-password" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        // Show the registration section when the "Register" link is clicked
+        document.getElementById("register-link").addEventListener("click", function (e) {
+            e.preventDefault();
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("registration-section").style.display = "block";
+        });
+
+        // Handle registration form submission
+        document.getElementById("registration-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get registration input values
+            var registerUsername = document.getElementById("register-username").value;
+            var registerEmail = document.getElementById("register-email").value;
+            var registerPassword = document.getElementById("register-password").value;
+            var registerConfirmPassword = document.getElementById("register-confirm-password").value;
+
+            // Perform client-side validation (you can add more validation here)
+            if (registerUsername === "" || registerEmail === "" || registerPassword === "" || registerConfirmPassword === "") {
+                alert("All fields are required.");
+                return;
+            }
+
+            if (registerPassword !== registerConfirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            // Register the user with Firebase Authentication
+            firebase.auth().createUserWithEmailAndPassword(registerEmail, registerPassword)
+                .then((userCredential) => {
+                    // Registration successful
+                    alert("Registration successful!");
+                })
+                .catch((error) => {
+                    // Handle registration error
+                    alert(error.message);
+                });
+        });
+
+        // Handle login form submission
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get login input values
+            var loginEmail = document.getElementById("login-email").value;
+            var loginPassword = document.getElementById("login-password").value;
+
+            // Perform client-side validation (you can add more validation here)
+            if (loginEmail === "" || loginPassword === "") {
+                alert("All fields are required.");
+                return;
+            }
+
+            // Log in the user with Firebase Authentication
+            firebase.auth().signInWithEmailAndPassword(loginEmail, loginPassword)
+                .then((userCredential) => {
+                    // Login successful
+                    alert("Login successful!");
+                })
+                .catch((error) => {
+                    // Handle login error
+                    alert(error.message);
+                });
+        });
+    </script>
+</body>
+</html>
